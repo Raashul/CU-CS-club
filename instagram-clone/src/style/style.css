@@ -1,0 +1,222 @@
+body{
+  background-color: #FAFAFA;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.box {
+  background-color: white;
+  position: relative;
+  margin: auto;
+  display: block;
+  margin-top: 8%;
+  width: 350px;
+  height: 400px;
+  border: 1px solid black;
+}
+
+h1{
+  margin-top: 8%;
+  font-family: 'Pacifico', cursive;
+}
+
+.login-details{
+  margin: 8% 8% 8% 8%;
+}
+
+.line{
+  height: 1px;
+  background: black;
+  margin-bottom: 8%;
+}
+
+.or{
+    position: relative;
+    top: 16px;
+    background: #fff;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.sign-up{
+  font-size: 12px;
+  text-align:right;
+  margin-top: 10%;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn-light:hover{
+  background: white;
+  border-color: white;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.forgot{
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.main{
+    margin-top: 5%;
+    border: 1px solid black;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 4px;
+}
+
+#siteTitle{
+    font-family: 'Pacifico', cursive;
+    color: black;
+}
+
+#facebookLogin{
+    background-color: blue;
+    width: 75%;
+    border-radius: 4px;
+}
+
+.second{
+    background-color: #3897f0;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+a:link{
+    color: white;
+    text-decoration: none;
+}
+
+a:visited{
+    color: white;
+    text-decoration: none;
+}
+
+#loginwithFacebook{
+    margin-left: 10px;
+}
+
+.signinInitialStep__divider:before {
+    left: 0;
+}
+
+.signinInitialStep__divider:before, .signinInitialStep__divider:after {
+    display: inline-block;
+    width: 43%;
+    border-top: 1px solid #333;
+    content: " ";
+    top: .5em;
+}
+
+.signinInitialStep__divider:after {
+    right: 0;
+}
+
+.signinInitialStep__divider{
+    color: black;
+    font-size: 16px;
+}
+
+input{
+    display: block;
+    border-radius: 4px;
+    margin-right: 25%;
+    margin-left: 17%;
+    text-align: center;
+    width: 300px;
+    color:black;
+}
+
+.signup{
+    background-color: #3897f0;
+    width: 75%;
+}
+
+#signUpterms{
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#login:link{
+    color:blue;
+    text-decoration: none;
+}
+
+#login:active{
+    color:blue;
+    text-decoration: none;
+}
+
+#login:hover{
+    color:blue;
+    text-decoration: none;
+}
+
+#login:visited{
+    color:blue;
+    text-decoration: none;
+}
+
+#alreadyAccount{
+    color: black;
+    position: absolute;
+    right: 33%;
+}
+
+@media (min-width:200px) and (max-width:600px){
+    .main{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    input{
+        width:75%;
+        margin-left: 15%;
+        margin-right: 25%
+    }
+
+    #alreadyAccount{
+        position:absolute;
+        right:13%;
+    }
+}
+
+@media (min-width:601px) and (max-width:1000px){
+    .main{
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    input{
+        width:68%;
+    }
+
+    #alreadyAccount{
+        position:absolute;
+        right:28%;
+    }
+}
+
+@media (min-width:1001px) and (max-width:1248px){
+    .main{
+         margin-left: 25%;
+         margin-right: 25%;
+    }
+
+    input{
+        width:75%;
+    }
+
+    #alreadyAccount{
+        position:absolute;
+        right:28%;
+    }
+}
