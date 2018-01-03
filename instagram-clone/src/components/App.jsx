@@ -6,14 +6,20 @@ import { read_cookie } from 'sfcookies';
 import { Link } from 'react-router'
 
 import PostList from './PostList';
+import UserHeader from './UserHeader';
+
 
 class App extends Component{
 
   signOut(){
+    localStorage.removeItem('username');
     firebaseApp.auth().signOut();
   }
 
   render(){
+
+    //pass username as prop to UserHeader
+    const username = localStorage.getItem('username');
 
     return(
       <div>
@@ -21,6 +27,17 @@ class App extends Component{
         <div>
           <Link to ={'/post'}  className='btn btn-success'>Post Photos </Link>
          </div>
+         <br />
+
+         <button
+           className='btn btn-danger'
+           onClick={() => this.signOut()}
+           >
+             Sign Out
+           </button>
+
+         <UserHeader username = {username}/>
+
          <hr />
 
          <div className='featured-tags'>
@@ -39,12 +56,7 @@ class App extends Component{
         </div>
          <hr />
 
-        <button
-          className='btn btn-danger'
-          onClick={() => this.signOut()}
-          >
-            Sign Out
-          </button>
+
       </div>
 
     )

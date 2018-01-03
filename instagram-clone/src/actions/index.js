@@ -4,6 +4,7 @@ export function logUser(uid, username){
   const action = {
     type: SIGNED_IN,
     uid
+
   }
   return action;
 }

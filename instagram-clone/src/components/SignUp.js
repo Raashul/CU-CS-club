@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { firebaseApp } from '../firebase';
 import { Link } from 'react-router';
-import uuid from 'uuid';
 import firebase from 'firebase';
 
 class SignUp extends Component{
@@ -11,7 +10,7 @@ class SignUp extends Component{
 
     this.state = {
       // uid: uuid.v1(),
-      displayName: '',
+      username: '',
       email: '',
       password: '',
       full_name: '',
@@ -29,6 +28,7 @@ class SignUp extends Component{
         console.log('error', error);
         this.setState({error});
       })
+      localStorage.setItem('username', this.state.username);
   }
 
   render(){
