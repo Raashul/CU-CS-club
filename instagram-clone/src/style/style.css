@@ -127,8 +127,6 @@ a:visited{
 input{
     display: block;
     border-radius: 4px;
-    margin-right: 25%;
-    margin-left: 17%;
     text-align: center;
     width: 300px;
     color:black;
@@ -219,4 +217,43 @@ input{
         position:absolute;
         right:28%;
     }
+}
+
+.post-body{
+  text-align: center;
+}
+
+.post-image-input{
+  width: 150px;
+}
+
+.progressBar{
+  width: 50%;
+  appearance: none;
+}
+
+.main-post-div{
+  text-align: center;
+}
+
+.post-image{
+  min-height:400px;
+  width: 500px;
+}
+
+.post-caption{
+  word-wrap: break-word;
+  font-size: 20px;
+  color: #000;
+  text-align: center;
+}
+
+.featured-tags{
+    text-align: center;
+}
+
+.featured-buttons{
+    border-radius: 20px;
+    color: white;
+    background-color: black;
 }

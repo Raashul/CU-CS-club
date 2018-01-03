@@ -1,11 +1,41 @@
 import React, { Component } from 'react';
+import { firebaseApp } from '../firebase';
+import { Link } from 'react-router';
+import uuid from 'uuid';
+import firebase from 'firebase';
 
 class SignUp extends Component{
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      // uid: uuid.v1(),
+      displayName: '',
+      email: '',
+      password: '',
+      full_name: '',
+      error : {
+        message: ''
+      }
+    };
+  }
+
+  submitSignUp(){
+    const {email, password} = this.state;
+
+    firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+      .catch(error => {
+        console.log('error', error);
+        this.setState({error});
+      })
+  }
+
   render(){
     return(
-      <div class="container">
+      <div className="container">
 
-         <div class="main">
+         <div className="main">
 
              <div id="first">
                  <h1 id="siteTitle">Meetgram</h1>
@@ -13,30 +43,74 @@ class SignUp extends Component{
              </div>
              <br />
 
-             <div class="second">
-                 <a href="#" class="loginFacebook">
-                     <span class="fa fa-facebook"></span><span id="loginwithFacebook">Login With Facebook</span>
-                 </a>
-             </div>
+             <button
+              // onClick={() => this.googleSignup()}
+               className="btn btn-success">
+               Sign In with Google
+             </button>
 
              <br />
-             <p class="signinInitialStep__divider">
+             <p className="signinInitialStep__divider">
                 or
              </p>
 
-             <div class="third">
-               <input type="text" placeholder="Username" name="userName" required /> <br />
-               <input type="text" placeholder="Full Name" name="fullName" required /> <br/>
-               <input type="email" placeholder="Email" name="emailAddress" required /> <br />
-               <input type="password" placeholder="Password" name="password" required pattern=".{8,}" title="Eight or more characters."/> <br />
-               <button type="submit" class="btn btn-primary signup">Sign Up</button>
+             <div className="third">
+               <input
+                 type="text"
+                 placeholder="Username"
+                 name="userName"
+                 validate ='required'
+                 onChange ={event => this.setState({username: event.target.value})}
+               />
+                 <br />
+               <input
+                 type="text"
+                 placeholder="Full Name"
+                 name="fullName"
+                 validate ='required'
+                  onChange ={event => this.setState({full_name: event.target.value})}
+               />
+                 <br/>
+               <input
+                 type="email"
+                 placeholder="Email"
+                 name="emailAddress"
+                validate ='required'
+                onChange ={event => this.setState({email: event.target.value})}
+                />
+                 <br />
+               <input
+                 type="password"
+                 placeholder="Password"
+                 name="password" required pattern=".{8,}"
+                 title="Eight or more characters."
+                validate ='required'
+                onChange ={event => this.setState({password: event.target.value})}
+               />
+                 <br />
 
-              <div id="signUpterms">By signing up you agree to our terms and privacy policy.</div>
+                <div style = {{color: 'red'}}>
+                  {this.state.error.message}
+                </div>
+
+               <button
+                 type="submit"
+                 className="btn btn-primary signup"
+                 onClick = {() => this.submitSignUp()}
+                >
+                  Sign Up
+                </button>
+
+              <div id="signUpterms">
+                By signing up you agree to our terms and privacy policy.
+              </div>
             </div>
 
           </div>
 
-         <div id="alreadyAccount">Have an account? <a href="login.html" id="login">Login</a></div>
+         <div id="alreadyAccount">Have an account?
+            <Link to = {'/signin'} id="login">Sign In</Link>
+         </div>
      </div>
 
     )
