@@ -12,8 +12,6 @@ import Login from './components/Login';
 import App from './components/App';
 import SignUp from './components/SignUp';
 import AddPost from './components/AddPost';
-import PostList from './components/PostList';
-import UserHeader from './components/UserHeader';
 
 import './style/style.css';
 

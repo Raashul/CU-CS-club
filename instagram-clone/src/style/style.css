@@ -227,13 +227,9 @@ input{
   width: 150px;
 }
 
-.progressBar{
-  width: 50%;
-  appearance: none;
-}
 
 .main-post-div{
-  text-align: center;
+  margin: 10px;
 }
 
 .post-image{
@@ -243,9 +239,8 @@ input{
 
 .post-caption{
   word-wrap: break-word;
-  font-size: 20px;
+  font-size: 1.7em;
   color: #000;
-  text-align: center;
 }
 
 .featured-tags{
@@ -253,7 +248,21 @@ input{
 }
 
 .featured-buttons{
-    border-radius: 20px;
+  border-radius: 40px;
     color: white;
     background-color: black;
+    height: 35px;
+    width: 116px;
+}
+
+/*  Like button style*/
+
+
+.love-count{
+  color: black;
+  text-decoration: none;
+}
+
+.love-count:hover{
+  color: #ff1a1a;
 }

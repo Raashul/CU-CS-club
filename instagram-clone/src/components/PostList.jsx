@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
-import {Nav, NavItem } from 'react-bootstrap';
 
 import { posts } from '../firebase';
+import LoveCount from './LoveCount';
 
 class PostList extends Component{
+
+
 
   constructor(props){
     super(props);
     this.state = {
       posts: []
     };
+
   }
 
 
-  componentDidMount(){
+  componentWillMount(){
+    console.log('componentWillMount');
     posts.on('value', snap => {
       let posts = [];
       snap.forEach(post => {
         const serverKey = post.key;
-        const {caption, pictureDownloadUrl} = post.val();
-        posts.push({caption, pictureDownloadUrl, serverKey});
+        let {caption, pictureDownloadUrl, totalLoves} = post.val();
+        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves});
+
       });
       console.log('posts', posts);
       this.setState({
-        posts: posts
+        posts: posts,
       })
-
     })
   }
+
+
+
 
   render(){
     return(
@@ -40,8 +47,10 @@ class PostList extends Component{
                 <h3 className='post-caption'> <strong> {post.caption}</strong></h3>
                 <img
                   src = {post.pictureDownloadUrl}
-                  className='post-image' />
-
+                  className='post-image'
+                  alt = 'image'
+                 />
+                  <LoveCount totalLoves = {post.totalLoves}/>
               </div>
             )
           })}

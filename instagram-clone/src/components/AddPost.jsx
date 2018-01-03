@@ -13,7 +13,7 @@ class AddPost extends Component{
         pictureToAdd: {},
         caption: '',
         pictureUrl: '',
-        upvote: 0,
+        loveCounts: 0,
         pictureDownloadUrl: '',
         success: ''
       };
@@ -54,14 +54,10 @@ class AddPost extends Component{
         });
         console.log('this.state', this.state);
 
-        const postData = {
-          caption: this.state.caption,
-          pictureDownloadUrl: this.state.pictureDownloadUrl
-        }
-
         posts.push({
           caption: this.state.caption,
-          pictureDownloadUrl: this.state.pictureDownloadUrl
+          pictureDownloadUrl: this.state.pictureDownloadUrl,
+          totalLoves: this.state.loveCounts
         })
 
         browserHistory.push('/app');

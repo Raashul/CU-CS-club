@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { firebaseApp } from '../firebase';
 import { logUser, userRef } from '../actions'
-import { read_cookie } from 'sfcookies';
 import { Link } from 'react-router'
 
 import PostList from './PostList';
 import UserHeader from './UserHeader';
+import FeaturedTags from './FeaturedTags';
 
 
 class App extends Component{
@@ -23,33 +23,19 @@ class App extends Component{
 
     return(
       <div>
-
         <div>
           <Link to ={'/post'}  className='btn btn-success'>Post Photos </Link>
          </div>
-         <br />
-
+         <br/>
          <button
            className='btn btn-danger'
            onClick={() => this.signOut()}
            >
              Sign Out
            </button>
-
          <UserHeader username = {username}/>
-
          <hr />
-
-         <div className='featured-tags'>
-            <button className='featured-buttons'>Funny</button>
-            <button className='featured-buttons'>College</button>
-            <button className='featured-buttons'>Nature</button>
-            <button className='featured-buttons'>Technology</button>
-            <button className='featured-buttons'>Technology</button>
-            <button className='featured-buttons'>Technology</button>
-            <button className='featured-buttons'>Technology</button>
-         </div>
-
+         <FeaturedTags />
         <div>
           <h3>Posts</h3>
           <PostList />
