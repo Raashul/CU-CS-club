@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8">
+        <meta name="author" content="Aamosh">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    </head>
+    <body class="signupBody">
+        <div class="container">
+            <div class="main"> <!-- div element that holds all the displayed elements -->
+                <div class="first">
+                    <h1 class="siteTitle"><a href="#">Meetgram</a></h1>
+                    <span class="tagline">Start Your Journey With Us.</span>
+                </div> <br>
+                <div class="second">
+                    <a href="#" class="loginFacebook">
+                        <span class="fa fa-facebook"></span><span class="loginwithFacebook">Login With Facebook</span>
+                    </a>
+                </div> <br>
+                <p class="signinInitialStep__divider__or">
+                   or
+                </p>
+                <p class="signinInitialStep__divider__line"></p>
+                <div class="third">
+                    <form action="signup.js" method="post">
+                        <input type="text" class="formField" placeholder="Username" name="userName" required><br>
+                        <input type="text" class="formField" placeholder="Full Name" name="fullName" required> <br>
+                        <input type="email" class="formField" placeholder="Email" name="emailAddress" required> <br>
+                        <input type="password" class="formField" placeholder="Password" name="password" required pattern=".{8,}" title="Eight or more characters."> <br>
+                        <button type="submit" class="btn btn-primary signup">Sign Up</button>
+                    </form>
+                    <div class="signUpterms">By signing up you agree to our terms and privacy policy.</div>
+                </div>
+            </div>
+            <div class="alreadyAccount">Have an account? <a href="login.html" class="login">Login</a></div>
+        </div>
+        
+    </body>
+</html>
