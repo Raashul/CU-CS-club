@@ -7,7 +7,7 @@ import { Link } from 'react-router'
 import PostList from './PostList';
 import UserHeader from './UserHeader';
 import FeaturedTags from './FeaturedTags';
-
+import FeaturedPost from './FeaturedPost';
 
 class App extends Component{
 
@@ -39,6 +39,7 @@ class App extends Component{
         <div>
           <h3>Posts</h3>
           <PostList />
+          <FeaturedPost />
         </div>
          <hr />
 

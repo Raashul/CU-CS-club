@@ -3,6 +3,8 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
+
+/* Login Input box */
 .box {
   background-color: white;
   position: relative;
@@ -255,8 +257,7 @@ input{
     width: 116px;
 }
 
-/*  Like button style*/
-
+/*  Love component style*/
 
 .love-count{
   color: black;
@@ -265,4 +266,10 @@ input{
 
 .love-count:hover{
   color: #ff1a1a;
+}
+
+.secondary-love-para{
+  font-weight: 400;
+  font-size: 0.9em;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif
 }

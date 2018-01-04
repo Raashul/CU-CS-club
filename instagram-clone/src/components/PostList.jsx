@@ -26,7 +26,6 @@ class PostList extends Component{
         posts.push({caption, pictureDownloadUrl, serverKey, totalLoves});
 
       });
-      console.log('posts', posts);
       this.setState({
         posts: posts,
       })
@@ -41,6 +40,15 @@ class PostList extends Component{
       <div>
         <div className='main-post-div'>
 
+          <p className="main-love-para">
+            <i className="fa fa-heart fa-2x" aria-hidden="true"> </i>
+            <strong>  Send you love as much as 10 times.</strong>
+          </p>
+          <p className="secondary-love-para">
+            By sending your love, you can signal to us which story really stands out
+          </p>
+          <hr />
+
           {this.state.posts.map((post, index) => {
             return (
               <div key={index}>
@@ -50,7 +58,8 @@ class PostList extends Component{
                   className='post-image'
                   alt = 'image'
                  />
-                  <LoveCount totalLoves = {post.totalLoves}/>
+                 <hr />
+                  <LoveCount post = {post}/>
               </div>
             )
           })}
