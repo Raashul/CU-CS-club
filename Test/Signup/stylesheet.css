@@ -18,11 +18,6 @@
     color: black;
 }
 
-.facebookLogin{
-    background-color: blue;
-    width: 75%;
-    border-radius: 4px;
-}
 
 .second{
     background-color: #3897f0;
@@ -91,9 +86,6 @@
     width: 75%;
 }
 
-.signup:hover{
-    background-color: #3897f0;
-}
 
 .signUpterms{
   margin-left: 25%;
