@@ -10,7 +10,6 @@ export default (state = user, action) => {
       const {uid} = action;
       user = {
         uid
-
       }
       return user;
     default:

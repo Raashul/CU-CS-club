@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router'
-
 import { posts } from '../firebase';
 
 class FeaturedPost extends Component{
@@ -20,15 +18,13 @@ class FeaturedPost extends Component{
 
     componentWillMount(){
       posts.on('value', snap => {
-
         let featuredPost = {};
         let max = 0;
         snap.forEach(post => {
-
           const serverKey = post.key;
           let {caption, pictureDownloadUrl, totalLoves} = post.val();
           if(totalLoves > max){
-            console.log('change max');
+
             max = totalLoves;
             featuredPost = {
               caption,
@@ -36,9 +32,7 @@ class FeaturedPost extends Component{
               serverKey,
               totalLoves
               };
-            console.log('featuredPost', featuredPost);
             this.setState({featuredPost: featuredPost});
-            console.log('this.state in featuredPost', this.state);
           }
 
         });
@@ -49,12 +43,15 @@ class FeaturedPost extends Component{
     render(){
 
       return (
-        <div > <h1>Featured post</h1>
-          <img
-            src = {this.state.featuredPost.pictureDownloadUrl}
-            className='post-image'
-            alt = 'image'
-           />
+        <div>
+          <h1>Featured post</h1>
+
+          <p className="main-love-para">
+            <strong> {this.state.featuredPost.caption}</strong>
+          </p>
+          <p className="secondary-love-para">
+            By Rashul Rajbhandari
+          </p>
            <hr />
 
         </div>

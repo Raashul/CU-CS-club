@@ -17,13 +17,12 @@ class PostList extends Component{
 
 
   componentWillMount(){
-    console.log('componentWillMount');
     posts.on('value', snap => {
       let posts = [];
       snap.forEach(post => {
         const serverKey = post.key;
-        let {caption, pictureDownloadUrl, totalLoves} = post.val();
-        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves});
+        let {caption, pictureDownloadUrl, totalLoves, aboutPhoto} = post.val();
+        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves, aboutPhoto});
 
       });
       this.setState({
@@ -52,15 +51,16 @@ class PostList extends Component{
           {this.state.posts.map((post, index) => {
             return (
               <div key={index}>
-                <h3 className='post-caption'> <strong> {post.caption}</strong></h3>
-                <img
-                  src = {post.pictureDownloadUrl}
-                  className='post-image'
-                  alt = 'image'
-                 />
-                 <hr />
-                  <LoveCount post = {post}/>
-              </div>
+                  <h3 className='post-caption'> <strong> {post.caption}</strong></h3>
+                  <img
+                    src = {post.pictureDownloadUrl}
+                    className='post-image'
+                    alt = 'image'
+                   />
+                   <hr />
+                    <p> <em> {post.aboutPhoto}</em></p>
+                    <LoveCount post = {post}/>
+                </div>
             )
           })}
         </div>

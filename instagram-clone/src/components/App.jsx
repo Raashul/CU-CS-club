@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { firebaseApp } from '../firebase';
-import { logUser, userRef } from '../actions'
+import { logUser } from '../actions'
 import { Link } from 'react-router'
 
 import PostList from './PostList';
@@ -38,8 +38,9 @@ class App extends Component{
          <FeaturedTags />
         <div>
           <h3>Posts</h3>
-          <PostList />
           <FeaturedPost />
+          <PostList />
+
         </div>
          <hr />
 

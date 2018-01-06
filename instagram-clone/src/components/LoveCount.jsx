@@ -12,15 +12,11 @@ class LoveCount extends Component{
       loveButtonDisabled: false,
       countClicked: 0
     }
-    console.log('this.state', this.state);
-
   }
 
   increaseLoveCount(){
 
     this.setState({countClicked: this.state.countClicked + 1});
-
-  
 
     if(this.state.countClicked > 9){
       this.setState({loveButtonDisabled : true})
@@ -29,27 +25,17 @@ class LoveCount extends Component{
       this.setState({
         totalLoves: this.state.totalLoves + 1
       });
-
-
       let postData = {
         totalLoves: this.state.totalLoves
       }
 
-
       const newPostKey = this.props.post.serverKey;
-
       let updates = {};
       updates['/posts'] = postData;
 
       return posts.child(newPostKey).update(postData);
 
     }
-
-
-  }
-
-  componentDidMount(){
-
   }
 
   render(){

@@ -32,7 +32,7 @@ class SignUp extends Component{
 
   render(){
     return(
-  
+
       <div className="container">
 
          <div className="main">
@@ -60,6 +60,7 @@ class SignUp extends Component{
                  placeholder="Username"
                  name="userName"
                  validate ='required'
+                 className="formField"
                  onChange ={event => this.setState({username: event.target.value})}
                />
                  <br />
@@ -68,6 +69,7 @@ class SignUp extends Component{
                  placeholder="Full Name"
                  name="fullName"
                  validate ='required'
+                 className="formField"
                   onChange ={event => this.setState({full_name: event.target.value})}
                />
                  <br/>
@@ -76,6 +78,7 @@ class SignUp extends Component{
                  placeholder="Email"
                  name="emailAddress"
                 validate ='required'
+                className="formField"
                 onChange ={event => this.setState({email: event.target.value})}
                 />
                  <br />
@@ -85,6 +88,7 @@ class SignUp extends Component{
                  name="password" required pattern=".{8,}"
                  title="Eight or more characters."
                 validate ='required'
+                className="formField"
                 onChange ={event => this.setState({password: event.target.value})}
                />
                  <br />

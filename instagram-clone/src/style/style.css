@@ -4,6 +4,17 @@ body{
 }
 
 
+
+.formField{
+    display: block;
+    border-radius: 4px;
+    margin-right: 25%;
+    margin-left: 17%;
+    text-align: center;
+    width: 300px;
+    color:black;
+}
+
 /* Login Input box */
 .box {
   background-color: white;
@@ -255,6 +266,13 @@ input{
     background-color: black;
     height: 35px;
     width: 116px;
+}
+
+/* AddPost style */
+
+.about-photo-textarea{
+  height: 100px;
+  width: 400px;
 }
 
 /*  Love component style*/

@@ -11,8 +11,6 @@ class FeaturedTags extends Component{
          <button className='featured-buttons'>Nature</button>
          <button className='featured-buttons'>Technology</button>
          <button className='featured-buttons'>News</button>
-         <button className='featured-buttons'>School</button>
-         <button className='featured-buttons'>Shows</button>
       </div>
     )
   }

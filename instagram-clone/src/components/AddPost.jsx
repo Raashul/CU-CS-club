@@ -15,36 +15,51 @@ class AddPost extends Component{
         pictureUrl: '',
         loveCounts: 0,
         pictureDownloadUrl: '',
-        success: ''
+        success: '',
+        aboutPhotoCharacters: '',
+        aboutPhoto:'',
+        error: '',
+        category: ''
       };
 
 
     }
 
-    submitPhoto(){
-      const {pictureToAdd} = this.state ;
-      console.log('pictureToAdd', pictureToAdd);
-      let random = Math.floor(Math.random(10-1) +1);
-      console.log('random', random);
-      const pictureName = random.toString() + pictureToAdd.name;
-      console.log('pictureName', pictureName);
+    handleFileChange(event){
 
-      this.setState({pictureUrl: 'images/' + pictureName});
+      const pictureToAdd = event.target.files[0];
+      console.log('pictureToAdd', pictureToAdd);
+
+      let random = Math.floor(Math.random(10-1) +1);
+
+      const pictureName = random.toString() + pictureToAdd.name;
+
 
       const metadata = {
         caption: this.state.caption
       }
 
       const storageRef = firebaseApp.storage().ref('images/' + pictureName);
-      storageRef.put(pictureToAdd, metadata);
-      this.setState({
-        success: <div style= {{color: 'green'}} >
-          Your post has been added</div>
-        });
+      let uploadTask = storageRef.put(pictureToAdd, metadata);
 
-    } //end of submitPhoto()
+      uploadTask.on('state_changed', snapshot => {
+        console.log('uploading image');
+        let uploadProgress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('upload is ' + uploadProgress + '% done');
+      }, error => {
+        console.log('error while uploading', error);
+      }, function(){
+        //upload is completed
+        this.setState({
+          success: <div style= {{color: 'green'}} >
+                  Your upload is complete</div>,
+          pictureUrl: 'images/' + pictureName
+          });
+      }.bind(this));
+    } //end of handleFileChange
 
-    displayPhoto(){
+
+    handleSubmit(){
 
       let pc = this.state.pictureUrl;
       let displayRef = firebaseApp.storage().ref(pc);
@@ -52,52 +67,111 @@ class AddPost extends Component{
         this.setState({
           pictureDownloadUrl: url
         });
-        console.log('this.state', this.state);
 
         posts.push({
           caption: this.state.caption,
           pictureDownloadUrl: this.state.pictureDownloadUrl,
-          totalLoves: this.state.loveCounts
+          totalLoves: this.state.loveCounts,
+          aboutPhoto: this.state.aboutPhoto
         })
 
         browserHistory.push('/app');
+      }).catch(error => {
+        console.log('error', error);
       });
 
-    }
+    } //end of handleSubmit
 
+    //count characters in textarea
 
+    wordCount(e){
+      let currentText = e.target.value;
+      let characterCount = currentText.length;
+
+      let aboutPhotoCharacters = characterCount + '/60';
+      let error = '';
+
+      if(characterCount > 50){
+          error = 'Character Count should be less than 60'
+      }
+      else{
+        error = ''
+      }
+
+      this.setState({
+        aboutPhotoCharacters: aboutPhotoCharacters,
+        aboutPhoto: currentText,
+        error: error
+      })
+
+    }//end of wordCount
 
 
     render() {
+      let disableSubmit = true;
+      if((this.state.success !== '') && (this.state.error === '')){
+        disableSubmit = false;
+      }
         return (
           <div className="form-inline post-body">
 
             <FormGroup>
               <FormControl type="file"
-                onChange={event => this.setState({pictureToAdd: event.target.files[0]})}/>
+                // onChange={event => this.setState({pictureToAdd: event.target.files[0]})}
+                onChange= {event => this.handleFileChange(event)}
+
+              />
+
+
+                {/* Status of upload */}
+                {this.state.success}
+
+                <select
+                  onChange= {e => this.setState({category: e.target.value})}
+                  >
+                  <option>Funny</option>
+                  <option>College</option>
+                  <option>Nature</option>
+                  <option>Technology</option>
+                  <option>News</option>
+                </select>
+
               <input
                 type = 'text'
                 placeholder= 'Enter a caption'
                 onChange = {event => this.setState({caption: event.target.value})}
               />
-              <button
+              <br />
+
+              <textarea
+                className='about-photo-textarea'
+                placeholder='Write something about your photo in less than 60 characters'
+                onChange={e => this.wordCount(e)}
+              />
+              <p>{this.state.aboutPhotoCharacters} </p>
+
+
+
+              <div style={{color: 'red'}}>{this.state.error}</div>
+              {/* <button
                 className='btn btn-success'
                 onClick= {() => this.submitPhoto()}
                 type = 'button'
+                disabled = {this.state.error}
                 >
                 Post Photo
-              </button>
-
+              </button> */}
             </FormGroup>
 
-            {this.state.success}
+
             <br />  <br />
             <button
               className='btn btn-success'
-              onClick= {() => this.displayPhoto()}
+              onClick= {() => this.handleSubmit()}
               type = 'button'
+              disabled = {disableSubmit}
               >
-              Go back home
+              Submit
             </button>
 
           </div>

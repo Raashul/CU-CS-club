@@ -6,6 +6,7 @@
     "firebase": "^4.8.1",
     "react": "^16.2.0",
     "react-bootstrap": "^0.31.5",
+    "react-bootstrap-select": "^0.14.0",
     "react-dom": "^16.2.0",
     "react-images-upload": "^1.1.1",
     "react-redux": "^5.0.6",

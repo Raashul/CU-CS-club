@@ -56,7 +56,7 @@ class SignIn extends Component{
            </div>
            <button
              type="submit"
-             className='btn btn-primary'
+             className='btn btn-success'
              onClick={() => this.signIn()}
               >
               Log in
@@ -74,7 +74,7 @@ class SignIn extends Component{
           <div className="line"></div>
 
           <div className="other-options">
-            <a href=""><button className='btn btn-primary'><i className="fa fa-facebook"></i> Log in with Facebook</button></a>
+            <a href=""><button className='btn btn-success'><i className="fa fa-google"></i> Log in with Google</button></a>
             <p className="forgot">
               <a href="forgot.html">Forgot password?
               </a></p>
