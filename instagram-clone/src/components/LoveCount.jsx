@@ -42,11 +42,12 @@ class LoveCount extends Component{
 
     return(
       <div className='love-count-div'>
-        <Link disabled = {this.state.loveButtonDisabled} className='love-count' onClick={() => this.increaseLoveCount()}>
-          <i className="fa fa-heart fa-2x" aria-hidden="true">
-         </i>
-        <em><span> {this.state.totalLoves} </span></em>
+        <Link disabled = {this.state.loveButtonDisabled}
+           className='love-count' onClick={() => this.increaseLoveCount()}>
+          <i className="fa fa-heart fa-2x" aria-hidden="true"></i>
        </Link>
+       <br />
+        <em><span className='nolike'> <strong> {this.state.totalLoves} loves </strong></span></em>
 
       </div>
     )

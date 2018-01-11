@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { firebaseApp } from '../firebase';
 import { Link } from 'react-router';
+import { config } from '../config/Auth';
 
 class SignUp extends Component{
 
@@ -15,7 +16,9 @@ class SignUp extends Component{
       full_name: '',
       error : {
         message: ''
-      }
+      },
+      idToken:'',
+      profile: {}
     };
   }
 

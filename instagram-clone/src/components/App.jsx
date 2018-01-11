@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { firebaseApp } from '../firebase';
 import { logUser } from '../actions'
 import { Link } from 'react-router'
+import {Grid, Row, Col} from 'react-bootstrap';
 
 import PostList from './PostList';
 import UserHeader from './UserHeader';
 import FeaturedTags from './FeaturedTags';
 import FeaturedPost from './FeaturedPost';
+import TopNavBar from './TopNavBar';
 
 class App extends Component{
 
@@ -23,9 +26,8 @@ class App extends Component{
 
     return(
       <div>
-        <div>
-          <Link to ={'/post'}  className='btn btn-success'>Post Photos </Link>
-         </div>
+          <TopNavBar />
+
          <br/>
          <button
            className='btn btn-danger'
@@ -36,12 +38,26 @@ class App extends Component{
          <UserHeader username = {username}/>
          <hr />
          <FeaturedTags />
-        <div>
+        {/* <div>
           <h3>Posts</h3>
           <FeaturedPost />
           <PostList />
 
-        </div>
+        </div> */}
+
+        <Grid>
+      		<Row className="show-grid">
+      			<Col xs={12} md={8}>
+      			     <PostList />
+      			</Col>
+      			<Col xs={6} md={4}>
+      				 <FeaturedPost />
+      			</Col>
+      		</Row>
+
+        </Grid>
+
+
          <hr />
 
 

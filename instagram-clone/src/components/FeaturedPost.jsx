@@ -44,16 +44,16 @@ class FeaturedPost extends Component{
 
       return (
         <div>
-          <h1>Featured post</h1>
+          <h3><strong> Featured post </strong></h3>
+
+          <p className="secondary-love-para">
+            By Rashul Rajbhandari
+          </p>
 
           <p className="main-love-para">
             <strong> {this.state.featuredPost.caption}</strong>
           </p>
-          <p className="secondary-love-para">
-            By Rashul Rajbhandari
-          </p>
            <hr />
-
         </div>
       )
 

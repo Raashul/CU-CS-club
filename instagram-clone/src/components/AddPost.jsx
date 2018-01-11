@@ -71,8 +71,7 @@ class AddPost extends Component{
         posts.push({
           caption: this.state.caption,
           pictureDownloadUrl: this.state.pictureDownloadUrl,
-          totalLoves: this.state.loveCounts,
-          aboutPhoto: this.state.aboutPhoto
+          totalLoves: this.state.loveCounts
         })
 
         browserHistory.push('/app');
@@ -88,19 +87,19 @@ class AddPost extends Component{
       let currentText = e.target.value;
       let characterCount = currentText.length;
 
-      let aboutPhotoCharacters = characterCount + '/60';
+      let captionCharacters = characterCount + '/60';
       let error = '';
 
       if(characterCount > 50){
-          error = 'Character Count should be less than 60'
+          error = 'Caption should be less than 60 characters'
       }
       else{
         error = ''
       }
 
       this.setState({
-        aboutPhotoCharacters: aboutPhotoCharacters,
-        aboutPhoto: currentText,
+        aboutPhotoCharacters: captionCharacters,
+        caption: currentText,
         error: error
       })
 
@@ -121,8 +120,6 @@ class AddPost extends Component{
                 onChange= {event => this.handleFileChange(event)}
 
               />
-
-
                 {/* Status of upload */}
                 {this.state.success}
 
@@ -136,34 +133,25 @@ class AddPost extends Component{
                   <option>News</option>
                 </select>
 
-              <input
+              <textarea
                 type = 'text'
-                placeholder= 'Enter a caption'
-                onChange = {event => this.setState({caption: event.target.value})}
+                className='about-photo-textarea'
+                placeholder= 'Enter a caption in less than 60 characters'
+                // onChange = {event => this.setState({caption: event.target.value})}
+                onChange={e => this.wordCount(e)}
+
               />
               <br />
 
-              <textarea
+              {/* <textarea
                 className='about-photo-textarea'
                 placeholder='Write something about your photo in less than 60 characters'
                 onChange={e => this.wordCount(e)}
-              />
+              /> */}
+
               <p>{this.state.aboutPhotoCharacters} </p>
-
-
-
               <div style={{color: 'red'}}>{this.state.error}</div>
-              {/* <button
-                className='btn btn-success'
-                onClick= {() => this.submitPhoto()}
-                type = 'button'
-                disabled = {this.state.error}
-                >
-                Post Photo
-              </button> */}
             </FormGroup>
-
-
             <br />  <br />
             <button
               className='btn btn-success'
@@ -173,9 +161,7 @@ class AddPost extends Component{
               >
               Submit
             </button>
-
           </div>
-
         );
     }
 }

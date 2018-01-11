@@ -5,8 +5,6 @@ import LoveCount from './LoveCount';
 
 class PostList extends Component{
 
-
-
   constructor(props){
     super(props);
     this.state = {
@@ -21,8 +19,8 @@ class PostList extends Component{
       let posts = [];
       snap.forEach(post => {
         const serverKey = post.key;
-        let {caption, pictureDownloadUrl, totalLoves, aboutPhoto} = post.val();
-        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves, aboutPhoto});
+        let {caption, pictureDownloadUrl, totalLoves} = post.val();
+        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves});
 
       });
       this.setState({
@@ -30,8 +28,6 @@ class PostList extends Component{
       })
     })
   }
-
-
 
 
   render(){
@@ -50,16 +46,28 @@ class PostList extends Component{
 
           {this.state.posts.map((post, index) => {
             return (
-              <div key={index}>
-                  <h3 className='post-caption'> <strong> {post.caption}</strong></h3>
+              <div key={index} className='post'>
+                  <h3 className='post-username'>Rashul Rajbhandari</h3>
+
                   <img
                     src = {post.pictureDownloadUrl}
                     className='post-image'
                     alt = 'image'
                    />
-                   <hr />
-                    <p> <em> {post.aboutPhoto}</em></p>
+                   <br />
+                   <br />
                     <LoveCount post = {post}/>
+                    <div className='caption'>
+                      <p className='post-caption'>
+                        <strong> Username </strong> {post.caption}
+                      </p>
+                     </div>
+
+                    <hr />
+                      {/* <div class="yourcomment">
+                        <input class="commenthere"
+                          type="text" placeholder="Add a comment..." />
+                        </div> */}
                 </div>
             )
           })}

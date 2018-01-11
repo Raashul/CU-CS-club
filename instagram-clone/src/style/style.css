@@ -3,8 +3,6 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
-
-
 .formField{
     display: block;
     border-radius: 4px;
@@ -232,6 +230,13 @@ input{
     }
 }
 
+/*  Post styles */
+
+.post{
+  margin-top: 80px;
+  background-color: #FFFFFF;
+}
+
 .post-body{
   text-align: center;
 }
@@ -250,10 +255,15 @@ input{
   width: 500px;
 }
 
-.post-caption{
-  word-wrap: break-word;
-  font-size: 1.7em;
-  color: #000;
+/*  Comments  */
+
+
+.commenthere{
+  border: none;
+  width: 70%;
+  color: black;
+  padding-bottom: 1.4%;
+  font-size: 1.2em;
 }
 
 .featured-tags{
@@ -279,6 +289,9 @@ input{
 
 .love-count{
   color: black;
+  font-weight: 600;
+  margin-top: 1.4%;
+  font-size: 1.2em;
   text-decoration: none;
 }
 
@@ -290,4 +303,23 @@ input{
   font-weight: 400;
   font-size: 0.9em;
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif
+}
+
+/* Navbar stylesheet */
+
+
+.navbar{
+  padding-top: 1.25%;
+  background-color: white;
+}
+
+.navbar-post-link{
+    color: black;
+    margin-top: 10px
+}
+
+.sitename{
+  font-family: 'Pacifico', cursive;
+  color: black;
+  font-size: 1.5em;
 }
