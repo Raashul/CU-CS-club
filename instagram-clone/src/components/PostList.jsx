@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import { posts } from '../firebase';
+
+import FeaturedTags from './FeaturedTags';
 import LoveCount from './LoveCount';
 
 class PostList extends Component{
@@ -8,24 +10,76 @@ class PostList extends Component{
   constructor(props){
     super(props);
     this.state = {
-      posts: []
-    };
+      posts: [],
+      tagCounts : {
+        funnyPosts: 0,
+        collegePosts: 0,
+        naturePosts: 0,
+        technologyPosts: 0,
+        newsPosts: 0,
+        savagePosts: 0,
+        sciencePosts: 0,
+        awkwardMomentsPosts: 0,
+        newsPosts: 0,
+        wtfPosts: 0
+      }
 
+    };
   }
 
 
   componentWillMount(){
+    let tagCounts = {
+      funnyPosts: 0,
+      collegePosts: 0,
+      naturePosts: 0,
+      technologyPosts: 0,
+      newsPosts: 0,
+      savagePosts: 0,
+      sciencePosts: 0,
+      awkwardMomentsPosts: 0,
+      wtfPosts: 0
+    }
     posts.on('value', snap => {
       let posts = [];
       snap.forEach(post => {
         const serverKey = post.key;
-        let {caption, pictureDownloadUrl, totalLoves} = post.val();
-        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves});
+        let {caption, pictureDownloadUrl, totalLoves, tag} = post.val();
+        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves, tag});
 
+        if(tag === '#funny'){
+          tagCounts.funnyPosts++;
+        }
+        else if(tag === '#college'){
+            tagCounts.collegePosts++;
+        }
+        else if(tag === '#nature'){
+            tagCounts.naturePosts++;
+        }
+        else if(tag === '#technology'){
+            tagCounts.technologyPosts++;
+        }
+        else if(tag === '#savage'){
+            tagCounts.savagePosts++;
+        }
+        else if(tag === '#science'){
+            tagCounts.sciencePosts++;
+        }
+        else if(tag === '#news'){
+            tagCounts.newsPosts++;
+        }
+        else if(tag === '#awkwardMoments'){
+            tagCounts.awkwardMomentsPosts++;
+        }
+        else if(tag === '#wtf'){
+            tagCounts.wtfPosts++;
+        }
       });
       this.setState({
         posts: posts,
+        tagCounts: tagCounts
       })
+
     })
   }
 
@@ -33,6 +87,7 @@ class PostList extends Component{
   render(){
     return(
       <div>
+        <FeaturedTags tagCounts = {this.state.tagCounts}/>
         <div className='main-post-div'>
 
           <p className="main-love-para">
@@ -57,6 +112,7 @@ class PostList extends Component{
                    <br />
                    <br />
                     <LoveCount post = {post}/>
+                    <div>tag: {post.tag} </div>
                     <div className='caption'>
                       <p className='post-caption'>
                         <strong> Username </strong> {post.caption}
@@ -64,10 +120,6 @@ class PostList extends Component{
                      </div>
 
                     <hr />
-                      {/* <div class="yourcomment">
-                        <input class="commenthere"
-                          type="text" placeholder="Add a comment..." />
-                        </div> */}
                 </div>
             )
           })}

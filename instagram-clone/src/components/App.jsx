@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 
 import { firebaseApp } from '../firebase';
 import { logUser } from '../actions'
-import { Link } from 'react-router'
 import {Grid, Row, Col} from 'react-bootstrap';
 
 import PostList from './PostList';
 import UserHeader from './UserHeader';
-import FeaturedTags from './FeaturedTags';
 import FeaturedPost from './FeaturedPost';
 import TopNavBar from './TopNavBar';
 
@@ -37,7 +35,7 @@ class App extends Component{
            </button>
          <UserHeader username = {username}/>
          <hr />
-         <FeaturedTags />
+
         {/* <div>
           <h3>Posts</h3>
           <FeaturedPost />

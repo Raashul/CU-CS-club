@@ -54,6 +54,11 @@ class FeaturedPost extends Component{
             <strong> {this.state.featuredPost.caption}</strong>
           </p>
            <hr />
+           <img
+             src = {this.state.featuredPost.pictureDownloadUrl}
+             className='featured-image'
+             alt = 'image'
+            />
         </div>
       )
 

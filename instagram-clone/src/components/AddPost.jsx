@@ -8,7 +8,6 @@ class AddPost extends Component{
 
   constructor(props) {
     super(props);
-
      this.state = {
         pictureToAdd: {},
         caption: '',
@@ -17,12 +16,9 @@ class AddPost extends Component{
         pictureDownloadUrl: '',
         success: '',
         aboutPhotoCharacters: '',
-        aboutPhoto:'',
         error: '',
-        category: ''
+        tag: '#funny'
       };
-
-
     }
 
     handleFileChange(event){
@@ -71,7 +67,8 @@ class AddPost extends Component{
         posts.push({
           caption: this.state.caption,
           pictureDownloadUrl: this.state.pictureDownloadUrl,
-          totalLoves: this.state.loveCounts
+          totalLoves: this.state.loveCounts,
+          tag: this.state.tag
         })
 
         browserHistory.push('/app');
@@ -122,16 +119,21 @@ class AddPost extends Component{
               />
                 {/* Status of upload */}
                 {this.state.success}
-
-                <select
-                  onChange= {e => this.setState({category: e.target.value})}
-                  >
-                  <option>Funny</option>
-                  <option>College</option>
-                  <option>Nature</option>
-                  <option>Technology</option>
-                  <option>News</option>
-                </select>
+                <div>
+                  <select
+                    onChange= {e => this.setState({tag: e.target.value})}
+                    >
+                    <option>#funny</option>
+                    <option>#college</option>
+                    <option>#nature</option>
+                    <option>#technology</option>
+                    <option>#news</option>
+                    <option>#science</option>
+                    <option>#awkward moment</option>
+                    <option>#savage</option>
+                    <option>#wtf</option>
+                  </select>
+                </div>
 
               <textarea
                 type = 'text'
@@ -142,13 +144,6 @@ class AddPost extends Component{
 
               />
               <br />
-
-              {/* <textarea
-                className='about-photo-textarea'
-                placeholder='Write something about your photo in less than 60 characters'
-                onChange={e => this.wordCount(e)}
-              /> */}
-
               <p>{this.state.aboutPhotoCharacters} </p>
               <div style={{color: 'red'}}>{this.state.error}</div>
             </FormGroup>

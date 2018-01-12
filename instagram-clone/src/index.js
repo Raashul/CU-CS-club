@@ -12,6 +12,7 @@ import Login from './components/Login';
 import App from './components/App';
 import SignUp from './components/SignUp';
 import AddPost from './components/AddPost';
+import Tag from './components/Tag';
 
 import './style/style.css';
 
@@ -36,6 +37,7 @@ ReactDOM.render(
       <Route path = '/signin' component={Login} />
       <Route path = '/signup' component={SignUp} />
       <Route path = '/post' component={AddPost} />
+      <Route path ='/tags/:tag' component={Tag} />
     </Router>
   </Provider>, document.getElementById('root')
 );
