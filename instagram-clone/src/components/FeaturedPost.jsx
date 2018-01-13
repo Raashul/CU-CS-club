@@ -3,18 +3,18 @@ import { posts } from '../firebase';
 
 class FeaturedPost extends Component{
 
-    constructor(props){
-      super(props);
-      this.state = {
-        featuredPost: {
-          caption: '',
-          pictureDownloadUrl: '',
-          serverKey : '',
-          totalLoves: 0
-        }
-      };
+  constructor(props){
+    super(props);
+    this.state = {
+      featuredPost: {
+        caption: '',
+        pictureDownloadUrl: '',
+        serverKey : '',
+        totalLoves: 0
+      }
+    };
 
-    }
+  }
 
     componentWillMount(){
       posts.on('value', snap => {
@@ -47,9 +47,9 @@ class FeaturedPost extends Component{
         <div>
           <h3><strong> Featured post </strong></h3>
 
-          <p className="secondary-love-para">
+          <h3 className="secondary-love-para">
             {this.state.featuredPost.username}
-          </p>
+          </h3>
 
           <p className="main-love-para">
             <strong> {this.state.featuredPost.caption}</strong>
