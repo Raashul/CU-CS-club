@@ -6,7 +6,6 @@ import { logUser } from '../actions'
 import {Grid, Row, Col} from 'react-bootstrap';
 
 import PostList from './PostList';
-import UserHeader from './UserHeader';
 import FeaturedPost from './FeaturedPost';
 import TopNavBar from './TopNavBar';
 
@@ -24,7 +23,7 @@ class App extends Component{
          <br/>
 
          <div>
-         <UserHeader/>
+
          <button
            className='btn btn-danger'
            onClick={() => this.signOut()}

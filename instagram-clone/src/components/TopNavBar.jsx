@@ -6,7 +6,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 class TopNavBar extends Component{
 
   render(){
-    const username = localStorage.getItem('username');
     return(
       <Navbar fixedTop className='navbar'>
       	<Navbar.Header>
@@ -20,13 +19,11 @@ class TopNavBar extends Component{
             <p><i className="fa fa-picture-o fa-lg" aria-hidden="true"></i> Post</p>
           </Link>
       		</NavItem>
-          <NavItem eventKey={2}>
-            <h4>Hello {username}!</h4>
-           </NavItem>
+
       	</Nav>
         <Nav pullRight>
         <NavItem eventKey={2}>
-          <Link to ='/signout'> <i className="fa fa-sign-out fa-lg" aria-hidden="true" ></i> </Link>
+          <i className="fa fa-sign-out fa-lg" aria-hidden="true" ></i>
         </NavItem>
       </Nav>
       </Navbar>

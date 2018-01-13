@@ -115,7 +115,7 @@ class PostList extends Component{
                     <div>tag: {post.tag} </div>
                     <div className='caption'>
                       <p className='post-caption'>
-                        <strong> Username </strong> {post.caption}
+                        <strong> {post.username}</strong> {post.caption}
                       </p>
                      </div>
 

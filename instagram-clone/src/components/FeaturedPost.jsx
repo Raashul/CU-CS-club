@@ -47,9 +47,9 @@ class FeaturedPost extends Component{
         <div>
           <h3><strong> Featured post </strong></h3>
 
-          <h3 className="secondary-love-para">
+          <h4>
             {this.state.featuredPost.username}
-          </h3>
+          </h4>
 
           <p className="main-love-para">
             <strong> {this.state.featuredPost.caption}</strong>
