@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { firebaseApp } from '../firebase';
+import { firebaseApp, users } from '../firebase';
 
 
 class SignIn extends Component{
@@ -22,6 +22,22 @@ class SignIn extends Component{
       .catch(error =>{
         this.setState({error});
       })
+
+      firebaseApp.auth().onAuthStateChanged(user => {
+        if(user){
+          const currentUid = user.uid
+
+          users.once('value', snap =>{
+            snap.forEach(eachUser => {
+              const {email, uid, username} = eachUser.val();
+              if(currentUid === uid){
+                localStorage.setItem('username', eachUser.val().username);
+              }
+            })
+          })
+        }
+      });
+
   }
 
 

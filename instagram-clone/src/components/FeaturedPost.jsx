@@ -22,7 +22,7 @@ class FeaturedPost extends Component{
         let max = 0;
         snap.forEach(post => {
           const serverKey = post.key;
-          let {caption, pictureDownloadUrl, totalLoves} = post.val();
+          let {caption, pictureDownloadUrl, totalLoves, username} = post.val();
           if(totalLoves > max){
 
             max = totalLoves;
@@ -30,7 +30,8 @@ class FeaturedPost extends Component{
               caption,
               pictureDownloadUrl,
               serverKey,
-              totalLoves
+              totalLoves,
+              username
               };
             this.setState({featuredPost: featuredPost});
           }
@@ -47,7 +48,7 @@ class FeaturedPost extends Component{
           <h3><strong> Featured post </strong></h3>
 
           <p className="secondary-love-para">
-            By Rashul Rajbhandari
+            {this.state.featuredPost.username}
           </p>
 
           <p className="main-love-para">

@@ -18,31 +18,22 @@ class App extends Component{
   }
 
   render(){
-
-    //pass username as prop to UserHeader
-    const username = localStorage.getItem('username');
-
     return(
       <div>
           <TopNavBar />
-
          <br/>
+
+         <div>
+         <UserHeader/>
          <button
            className='btn btn-danger'
            onClick={() => this.signOut()}
            >
              Sign Out
            </button>
-         <UserHeader username = {username}/>
+
+         </div>
          <hr />
-
-        {/* <div>
-          <h3>Posts</h3>
-          <FeaturedPost />
-          <PostList />
-
-        </div> */}
-
         <Grid>
       		<Row className="show-grid">
       			<Col xs={12} md={8}>

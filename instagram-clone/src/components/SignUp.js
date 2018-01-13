@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import { firebaseApp } from '../firebase';
+import { firebaseApp, users } from '../firebase';
+import { browserHistory } from 'react-router';
+
 import { Link } from 'react-router';
+import Auth0Lock from 'auth0-lock'
+
+import config from '../config/Auth';
 
 class SignUp extends Component{
 
@@ -15,11 +20,12 @@ class SignUp extends Component{
       full_name: '',
       error : {
         message: ''
-      },
-      idToken:'',
-      profile: {}
+      }
     };
   }
+
+
+
 
   submitSignUp(){
     const {email, password} = this.state;
@@ -29,8 +35,21 @@ class SignUp extends Component{
         console.log('error', error);
         this.setState({error});
       })
-      localStorage.setItem('username', this.state.username);
+
+
+      firebaseApp.auth().onAuthStateChanged(user => {
+        const username = this.state.displayName;
+        if(user){
+          users.push({
+            email: user.email,
+            uid: user.uid,
+            username: username
+          })
+          localStorage.setItem('username', username);
+        }
+      });
   }
+
 
   render(){
     return(
@@ -38,16 +57,16 @@ class SignUp extends Component{
       <div className="container">
 
          <div className="main">
-
              <div id="first">
                  <h1 id="siteTitle">Meetgram</h1>
                  <span id="tagline">Start Your Journey With Us.</span>
              </div>
              <br />
-
              <button
+               onClick={() => this.signInWithGoogle()}
               // onClick={() => this.googleSignup()}
                className="btn btn-success">
+
                Sign In with Google
              </button>
 
@@ -60,10 +79,11 @@ class SignUp extends Component{
                <input
                  type="text"
                  placeholder="Username"
-                 name="userName"
+                 name="displayName"
+                 ref="displayName"
                  validate ='required'
                  className="formField"
-                 onChange ={event => this.setState({username: event.target.value})}
+                 onChange ={event => this.setState({displayName: event.target.value})}
                />
                  <br />
                <input

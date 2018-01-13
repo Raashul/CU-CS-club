@@ -68,7 +68,8 @@ class AddPost extends Component{
           caption: this.state.caption,
           pictureDownloadUrl: this.state.pictureDownloadUrl,
           totalLoves: this.state.loveCounts,
-          tag: this.state.tag
+          tag: this.state.tag,
+          username: localStorage.getItem('username')
         })
 
         browserHistory.push('/app');

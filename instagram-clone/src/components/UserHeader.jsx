@@ -10,7 +10,7 @@ class UserHeader extends Component{
     return(
 
       <div>
-        <h2> Hi {this.props.username} ! </h2>
+        <h2> Hi {localStorage.getItem('username')} ! </h2>
       </div>
 
     )

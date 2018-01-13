@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router';
 
 import LoveCount from './LoveCount';
 import { posts } from '../firebase';
@@ -38,7 +37,6 @@ constructor(props){
 
 
   render(){
-    console.log('props', this.props.params.tag);
 
     return(
       <div>
@@ -66,10 +64,6 @@ constructor(props){
                    </div>
 
                   <hr />
-                    {/* <div class="yourcomment">
-                      <input class="commenthere"
-                        type="text" placeholder="Add a comment..." />
-                      </div> */}
               </div>
           )
         })}
