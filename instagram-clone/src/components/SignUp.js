@@ -3,9 +3,6 @@ import { firebaseApp, users } from '../firebase';
 import { browserHistory } from 'react-router';
 
 import { Link } from 'react-router';
-import Auth0Lock from 'auth0-lock'
-
-import config from '../config/Auth';
 
 class SignUp extends Component{
 
