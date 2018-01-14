@@ -1,4 +1,4 @@
-https://meetgram.herokuapp.com/app
+https://meetgram.herokuapp.com
 
 -Install Node.js + React.j
 
