@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Button} from 'react-bootstrap';
+
 import { Link } from 'react-router';
 
 class FeaturedTags extends Component{
@@ -12,7 +14,7 @@ class FeaturedTags extends Component{
   render(){
     return(
       <div className='featured-tags'>
-         <Link to = '/tags/funny' className='featured-buttons'>
+         <Link to = '/tags/funny' className='featured-buttons btn btn-primary'>
           #funny ({this.props.tagCounts.funnyPosts})
         </Link>
          <Link to = '/tags/college' className='featured-buttons btn btn-primary'>
