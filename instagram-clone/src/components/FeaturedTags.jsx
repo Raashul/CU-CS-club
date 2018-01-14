@@ -12,7 +12,7 @@ class FeaturedTags extends Component{
   render(){
     return(
       <div className='featured-tags'>
-         <Link to = '/tags/funny' className='featured-buttons btn btn-primary'>
+         <Link to = '/tags/funny' className='featured-buttons'>
           #funny ({this.props.tagCounts.funnyPosts})
         </Link>
          <Link to = '/tags/college' className='featured-buttons btn btn-primary'>

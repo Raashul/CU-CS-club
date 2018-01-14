@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem, } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { firebaseApp } from '../firebase';
 
 class TopNavBar extends Component{
+
+  handleSignOut(){
+    localStorage.removeItem('username');
+    firebaseApp.auth().signOut();
+  }
 
   render(){
     return(
@@ -23,7 +29,7 @@ class TopNavBar extends Component{
       	</Nav>
         <Nav pullRight>
         <NavItem eventKey={2}>
-          <i className="fa fa-sign-out fa-lg" aria-hidden="true" ></i>
+          <div onClick={() => this.handleSignOut()}><i className="fa fa-sign-out fa-2x" aria-hidden="true" ></i></div>
         </NavItem>
       </Nav>
       </Navbar>

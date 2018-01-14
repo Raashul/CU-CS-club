@@ -47,13 +47,10 @@ class FeaturedPost extends Component{
         <div>
           <h3><strong> Featured post </strong></h3>
 
-          <h4>
-            {this.state.featuredPost.username}
-          </h4>
-
-          <p className="main-love-para">
-            <strong> {this.state.featuredPost.caption}</strong>
+          <p>
+            <strong>{this.state.featuredPost.username} </strong>{this.state.featuredPost.caption}
           </p>
+          
            <hr />
            <img
              src = {this.state.featuredPost.pictureDownloadUrl}

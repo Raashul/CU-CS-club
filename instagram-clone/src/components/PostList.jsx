@@ -19,7 +19,7 @@ class PostList extends Component{
         newsPosts: 0,
         savagePosts: 0,
         sciencePosts: 0,
-        awkwardMomentsPosts: 0,
+        awkwardMomentPosts: 0,
         newsPosts: 0,
         wtfPosts: 0
       }
@@ -37,7 +37,7 @@ class PostList extends Component{
       newsPosts: 0,
       savagePosts: 0,
       sciencePosts: 0,
-      awkwardMomentsPosts: 0,
+      awkwardMomentPosts: 0,
       wtfPosts: 0
     }
     posts.on('value', snap => {
@@ -69,7 +69,7 @@ class PostList extends Component{
             tagCounts.newsPosts++;
         }
         else if(tag === '#awkwardMoments'){
-            tagCounts.awkwardMomentsPosts++;
+            tagCounts.awkwardMomentPosts++;
         }
         else if(tag === '#wtf'){
             tagCounts.wtfPosts++;
