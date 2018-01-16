@@ -44,8 +44,8 @@ class PostList extends Component{
       let posts = [];
       snap.forEach(post => {
         const serverKey = post.key;
-        let {caption, pictureDownloadUrl, totalLoves, tag, username} = post.val();
-        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves, tag, username});
+        let {caption, pictureDownloadUrl, totalLoves, tag, username, displayPicture} = post.val();
+        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves, tag, username, displayPicture});
 
         if(tag === '#funny'){
           tagCounts.funnyPosts++;
@@ -102,8 +102,12 @@ class PostList extends Component{
           {this.state.posts.map((post, index) => {
             return (
               <div key={index} className='post'>
-                  <h3 className='post-username'>{post.username}</h3>
+                <div className='display-picture-div'>
+                  <img src={post.displayPicture} className='display-picture'/>
+                  <p className='post-username'><strong> {post.username} </strong></p>
+                </div>
 
+                <div>
                   <img
                     src = {post.pictureDownloadUrl}
                     className='post-image'
@@ -120,6 +124,7 @@ class PostList extends Component{
                      </div>
 
                     <hr />
+                  </div>
                 </div>
             )
           })}

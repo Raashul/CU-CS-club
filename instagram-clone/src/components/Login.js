@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { firebaseApp, users } from '../firebase';
+import { firebaseApp, users, provider } from '../firebase';
 
 
 class SignIn extends Component{
@@ -40,6 +40,28 @@ class SignIn extends Component{
 
   }
 
+  googleSignIn(){
+    firebaseApp.auth().signInWithPopup(provider).then(result => {
+      console.log(result.user);
+      const token = result.credential.accessToken;
+      const user = result.user;
+      const displayPicture = user.photoURL;
+      const email = user.email;
+      const uid = user.uid;
+      const username = user.displayName
+      localStorage.setItem('username', username);
+      localStorage.setItem('displayPicture', displayPicture);
+
+      users.push({
+        email: email,
+        uid: uid,
+        username: username,
+        displayPicture: displayPicture
+      })
+    })
+
+  }
+
 
   render(){
 
@@ -55,7 +77,7 @@ class SignIn extends Component{
              <input
                type="email"
                className="form-control"
-               placeholder="Username or email"
+               placeholder="test@gmail.com"
                name="email"
                onChange={event => this.setState({email: event.target.value})}
              />
@@ -65,7 +87,7 @@ class SignIn extends Component{
              <input
                type="password"
                className="form-control"
-               placeholder="Password"
+               placeholder="testing"
                name="password"
                onChange={event => this.setState({password: event.target.value})}
             />
@@ -90,7 +112,7 @@ class SignIn extends Component{
           <div className="line"></div>
 
           <div className="other-options">
-            <a href=""><button className='btn btn-success'><i className="fa fa-google"></i> Log in with Google</button></a>
+            <button className='btn btn-success' onClick={() => this.googleSignIn()}><i className="fa fa-google"></i> Log in with Google</button>
             <p className="forgot">
               <a href="forgot.html">Forgot password?
               </a></p>

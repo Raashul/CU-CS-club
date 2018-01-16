@@ -333,3 +333,22 @@ input{
   color: black;
   font-size: 1.5em;
 }
+
+
+/* Post styles*/
+
+.post-username{
+  font-size: 1.2em;
+  float: bottom;
+  padding: 15px 10px;
+}
+
+.display-picture-div{
+  display: inline-flex;
+}
+.display-picture{
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  border: 3px solid black;
+}
