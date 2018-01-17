@@ -29,7 +29,7 @@ class SignIn extends Component{
 
           users.once('value', snap =>{
             snap.forEach(eachUser => {
-              const {email, uid, username} = eachUser.val();
+              const {uid} = eachUser.val();
               if(currentUid === uid){
                 localStorage.setItem('username', eachUser.val().username);
               }
@@ -37,13 +37,12 @@ class SignIn extends Component{
           })
         }
       });
-
   }
 
   googleSignIn(){
     firebaseApp.auth().signInWithPopup(provider).then(result => {
       console.log(result.user);
-      const token = result.credential.accessToken;
+      //const token = result.credential.accessToken;
       const user = result.user;
       const displayPicture = user.photoURL;
       const email = user.email;
@@ -112,7 +111,8 @@ class SignIn extends Component{
           <div className="line"></div>
 
           <div className="other-options">
-            <button className='btn btn-success' onClick={() => this.googleSignIn()}><i className="fa fa-google"></i> Log in with Google</button>
+            <button className='btn btn-success' onClick={() => this.googleSignIn()}>
+              <i className="fa fa-google"></i> Log in/Sign In with Google</button>
             <p className="forgot">
               <a href="forgot.html">Forgot password?
               </a></p>

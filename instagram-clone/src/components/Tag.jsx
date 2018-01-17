@@ -22,9 +22,9 @@ constructor(props){
       let noPosts = `No posts with #${this.props.params.tag} tag`
       snap.forEach(post => {
         const serverKey = post.key;
-        let {caption, pictureDownloadUrl, totalLoves, tag} = post.val();
+        let {caption, pictureDownloadUrl, totalLoves, tag, username} = post.val();
         if(tag === '#' + this.props.params.tag){
-          posts.push({caption, pictureDownloadUrl, serverKey, totalLoves, tag});
+          posts.push({caption, pictureDownloadUrl, serverKey, totalLoves, tag, username});
           noPosts = '';
         }
       });
@@ -45,13 +45,14 @@ constructor(props){
         </div>
 
         {this.state.posts.map((post, index) => {
+          console.log('post', post);
           return (
             <div key={index} className='post' style = {{'text-align': 'center'}}>
-                <h3 className='post-username'>Rashul Rajbhandari</h3>
+                <p className='post-username-tag'><strong>{post.username}</strong></p>
                 <img
                   src = {post.pictureDownloadUrl}
                   className='post-image'
-                  alt = 'image'
+                  alt = 'Smiley face'
                  />
                  <br />
                  <br />
@@ -59,7 +60,7 @@ constructor(props){
                   <div>tag: {post.tag} </div>
                   <div className='caption'>
                     <p className='post-caption'>
-                      <strong> Username </strong> {post.caption}
+                      <strong> {post.username} </strong> {post.caption}
                     </p>
                    </div>
 

@@ -13,54 +13,53 @@ class FeaturedPost extends Component{
         totalLoves: 0
       }
     };
-
   }
 
-    componentWillMount(){
-      posts.on('value', snap => {
-        let featuredPost = {};
-        let max = 0;
-        snap.forEach(post => {
-          const serverKey = post.key;
-          let {caption, pictureDownloadUrl, totalLoves, username} = post.val();
-          if(totalLoves > max){
+  componentWillMount(){
+    posts.on('value', snap => {
+      let featuredPost = {};
+      let max = 0;
+      snap.forEach(post => {
+        const serverKey = post.key;
+        let {caption, pictureDownloadUrl, totalLoves, username} = post.val();
+        if(totalLoves > max){
 
-            max = totalLoves;
-            featuredPost = {
-              caption,
-              pictureDownloadUrl,
-              serverKey,
-              totalLoves,
-              username
-              };
-            this.setState({featuredPost: featuredPost});
-          }
+          max = totalLoves;
+          featuredPost = {
+            caption,
+            pictureDownloadUrl,
+            serverKey,
+            totalLoves,
+            username
+            };
+          this.setState({featuredPost: featuredPost});
+        }
 
-        });
+      });
 
-      })
-    }
-
-    render(){
-
-      return (
-        <div>
-          <h3><strong> Featured post </strong></h3>
-
-          <p>
-            <strong>{this.state.featuredPost.username} </strong>{this.state.featuredPost.caption}
-          </p>
-          
-           <hr />
-           <img
-             src = {this.state.featuredPost.pictureDownloadUrl}
-             className='featured-image'
-             alt = 'image'
-            />
-        </div>
-      )
-
+    })
   }
+
+  render(){
+
+    return (
+      <div>
+        <h3><strong> Featured post </strong></h3>
+
+        <p>
+          <strong>{this.state.featuredPost.username} </strong>{this.state.featuredPost.caption}
+        </p>
+
+         <hr />
+         <img
+           src = {this.state.featuredPost.pictureDownloadUrl}
+           className='featured-image'
+           alt = 'Smiley face'
+          />
+      </div>
+    )
+
+}
 
 }
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { firebaseApp } from '../firebase';
 import { logUser } from '../actions'
 import {Grid, Row, Col} from 'react-bootstrap';
 
@@ -11,11 +10,6 @@ import TopNavBar from './TopNavBar';
 
 class App extends Component{
 
-  signOut(){
-    localStorage.removeItem('username');
-    firebaseApp.auth().signOut();
-  }
-
   render(){
     return(
       <div>
@@ -23,13 +17,6 @@ class App extends Component{
          <br/>
 
          <div>
-
-         <button
-           className='btn btn-danger'
-           onClick={() => this.signOut()}
-           >
-             Sign Out
-           </button>
 
          </div>
          <hr />

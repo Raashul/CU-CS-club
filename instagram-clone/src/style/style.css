@@ -319,8 +319,7 @@ input{
 
 
 .navbar{
-  padding-top: 1.25%;
-  background-color: white;
+
 }
 
 .navbar-post-link{
@@ -331,14 +330,14 @@ input{
 .sitename{
   font-family: 'Pacifico', cursive;
   color: black;
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 
 /* Post styles*/
 
 .post-username{
-  font-size: 1.2em;
+  font-size: 0.9em;
   float: bottom;
   padding: 15px 10px;
 }
@@ -347,8 +346,8 @@ input{
   display: inline-flex;
 }
 .display-picture{
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   border-radius: 100%;
-  border: 3px solid black;
+  border: 2px solid black;
 }

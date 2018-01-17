@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { firebaseApp, users } from '../firebase';
-import { browserHistory } from 'react-router';
-
 import { Link } from 'react-router';
 
 class SignUp extends Component{
@@ -20,9 +18,6 @@ class SignUp extends Component{
       }
     };
   }
-
-
-
 
   submitSignUp(){
     const {email, password} = this.state;
@@ -58,15 +53,6 @@ class SignUp extends Component{
                  <h1 id="siteTitle">Meetgram</h1>
                  <span id="tagline">Start Your Journey With Us.</span>
              </div>
-             <br />
-             <button
-               onClick={() => this.signInWithGoogle()}
-              // onClick={() => this.googleSignup()}
-               className="btn btn-success">
-
-               Sign In with Google
-             </button>
-
              <br />
              <p className="signinInitialStep__divider">
                 or
@@ -110,19 +96,22 @@ class SignUp extends Component{
                 className="formField"
                 onChange ={event => this.setState({password: event.target.value})}
                />
-                 <br />
 
-                <div style = {{color: 'red'}}>
-                  {this.state.error.message}
-                </div>
+              <br />
 
-               <button
-                 type="submit"
-                 className="btn btn-primary signup"
-                 onClick = {() => this.submitSignUp()}
-                >
-                  Sign Up
-                </button>
+              <div style = {{color: 'red'}}>
+                {this.state.error.message}
+              </div>
+
+             <button
+               type="submit"
+               className="btn btn-primary signup"
+               onClick = {() => this.submitSignUp()}
+              >
+                Sign Up
+              </button>
+
+
 
               <div id="signUpterms">
                 By signing up you agree to our terms and privacy policy.
