@@ -7,6 +7,8 @@ class TopNavBar extends Component{
 
   handleSignOut(){
     localStorage.removeItem('username');
+    localStorage.removeItem('displayPicture');
+    localStorage.removeItem('image');
     firebaseApp.auth().signOut();
   }
 
@@ -31,10 +33,10 @@ class TopNavBar extends Component{
         	</Nav>
           <Nav pullRight>
             <NavItem>
-              <i className="fa fa-sign-out fa-2x" aria-hidden="true"
-                onClick ={() => this.handleSignOut()}
-                ></i>
+              <Link onClick ={() => this.handleSignOut()}>
+                <i className="fa fa-sign-out fa-2x" aria-hidden="true"></i>
               Logout
+            </Link>
             </NavItem>
           </Nav>
       </Navbar.Collapse>
