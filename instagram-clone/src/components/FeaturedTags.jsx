@@ -6,7 +6,6 @@ class FeaturedTags extends Component{
 
   constructor(props){
     super(props);
-    console.log('tag counts', this.props.tagCounts);
   }
 
   render(){

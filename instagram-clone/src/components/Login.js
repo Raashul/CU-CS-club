@@ -41,7 +41,6 @@ class SignIn extends Component{
 
   googleSignIn(){
     firebaseApp.auth().signInWithPopup(provider).then(result => {
-      console.log(result.user);
       //const token = result.credential.accessToken;
       const user = result.user;
       const displayPicture = user.photoURL;
