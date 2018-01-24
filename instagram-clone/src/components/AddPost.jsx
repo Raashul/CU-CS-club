@@ -12,7 +12,7 @@ class AddPost extends Component{
         pictureToAdd: {},
         caption: '',
         pictureUrl: '',
-        clap: false,
+        totalClaps: 0,
         pictureDownloadUrl: '',
         success: '',
         aboutPhotoCharacters: '',
@@ -67,7 +67,7 @@ class AddPost extends Component{
         posts.push({
           caption: this.state.caption,
           pictureDownloadUrl: this.state.pictureDownloadUrl,
-          clap: false,
+          totalClaps: this.state.totalClaps,
           tag: this.state.tag,
           username: localStorage.getItem('username'),
           displayPicture: localStorage.getItem('displayPicture'),

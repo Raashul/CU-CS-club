@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import {LinkContainer} from 'react-router-bootstrap';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { firebaseApp } from '../firebase';
 
@@ -18,13 +19,13 @@ class TopNavBar extends Component{
       <Navbar fixedTop className='navbar' collapseOnSelect>
       	<Navbar.Header>
       		<Navbar.Brand>
-      			 <Link className="navbar-brand"><i className="fa fa-instagram fa-2x" aria-hidden="true"></i><span className="sitename">Mini Instagram</span></Link>
+      			 <i className="fa fa-instagram fa-2x" aria-hidden="true"></i><span className="sitename">Mini Instagram</span>
           </Navbar.Brand>
           <Navbar.Toggle />
       	</Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-        		<Navbar.Text>
+            <Navbar.Text>
         			<Link to='/post' className='navbar-post-link' style={{color: 'black'}}>
                 <i className="fa fa-picture-o fa-lg" aria-hidden="true"></i>
                 Post
@@ -33,10 +34,10 @@ class TopNavBar extends Component{
         	</Nav>
           <Nav pullRight>
             <NavItem>
-              <Link onClick ={() => this.handleSignOut()}>
+              <div onClick ={() => this.handleSignOut()}>
                 <i className="fa fa-sign-out fa-2x" aria-hidden="true"></i>
               Logout
-            </Link>
+            </div>
             </NavItem>
           </Nav>
       </Navbar.Collapse>

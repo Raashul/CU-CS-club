@@ -257,10 +257,6 @@ input{
 }
 
 
-.main-post-div{
-  margin: 10px;
-}
-
 .post-image{
   min-height:300px;
   width: 100%;
@@ -271,7 +267,7 @@ input{
 
 .commenthere{
   border: none;
-  width: 70%;
+  width: 100%;
   color: black;
   padding-bottom: 1.4%;
 }
@@ -281,13 +277,17 @@ input{
 }
 
 .comment-comment{
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Dosis', sans-serif;
 }
 
 .comment-username{
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Pacifico", sans-serif;
+}
+
+.yourcomment{
+  border: 1px solid black;
 }
 
 
@@ -327,6 +327,14 @@ input{
 
 /*  Love component style*/
 
+
+.main-post-div{
+  margin: 10px;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif
+
+}
+
+
 .love-count{
   color: black;
   font-weight: 600;
@@ -337,12 +345,6 @@ input{
 
 .love-count:hover{
   color: #ff1a1a;
-}
-
-.secondary-love-para{
-  font-weight: 400;
-  font-size: 0.9em;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif
 }
 
 /* Navbar stylesheet */

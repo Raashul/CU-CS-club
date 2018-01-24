@@ -7,7 +7,7 @@ import { posts } from '../firebase';
 
 import Comments from './Comments';
 import FeaturedTags from './FeaturedTags';
-import Clap from './Clap';
+import ClapCount from './ClapCount';
 
 class PostList extends Component{
 
@@ -47,8 +47,8 @@ class PostList extends Component{
       let posts = [];
       snap.forEach(post => {
         const serverKey = post.key;
-        let {caption, pictureDownloadUrl, clap, tag, username, displayPicture, comments} = post.val();
-        posts.push({caption, pictureDownloadUrl, serverKey, clap, tag, username, displayPicture, comments});
+        let {caption, pictureDownloadUrl, clap, tag, username, displayPicture, comments, totalClaps} = post.val();
+        posts.push({caption, pictureDownloadUrl, serverKey, tag, username, displayPicture, comments, totalClaps});
         console.log('posts', posts);
 
         if(tag === '#funny'){
@@ -96,16 +96,14 @@ class PostList extends Component{
       <div>
         <FeaturedTags tagCounts = {this.state.tagCounts}/>
         <div className='main-post-div'>
-
-          {/* <p className="main-love-para">
-            <i className="fa fa-heart fa-2x" aria-hidden="true"> </i>
-            <strong>  Send you love as much as 10 times.</strong>
+          <p className="main-love-para">
+            <strong>How many claps do they get? </strong>
           </p>
           <p className="secondary-love-para">
-            By sending your love, you can signal to us which story really stands out
-          </p> */}
+            By clapping more or less, you can signal to us which stories really stand out.
+          </p>
 
-          
+
           <hr />
 
           {
@@ -126,7 +124,7 @@ class PostList extends Component{
                    />
                    <br />
                    <br />
-                    <Clap post = {post}/>
+                    <ClapCount post = {post}/>
                     <div>tag: {post.tag} </div>
                     <div className='caption'>
                       <p className='post-caption'>

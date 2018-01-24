@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Clap from './Clap';
+import ClapCount from './ClapCount';
 import Comments from './Comments';
 
 import { posts } from '../firebase';
@@ -63,7 +63,7 @@ constructor(props){
                  />
                  <br />
                  <br />
-                  <Clap post = {post}/>
+                  <ClapCount post = {post}/>
                   <div>tag: {post.tag} </div>
                   <div className='caption'>
                     <p className='post-caption'>

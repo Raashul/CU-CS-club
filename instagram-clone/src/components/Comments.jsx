@@ -71,7 +71,7 @@ class Comments extends Component{
       {
         this.props.post.comments.map((comment, index) => {
           return (
-            <div className="comment-section">
+            <div className="comment-section" key={index}>
               <p><span className='comment-username'> <strong>{comment.username} </strong> </span>
               <span className='comment-comment'> {comment.comment} </span>
             </p>
@@ -83,7 +83,7 @@ class Comments extends Component{
       }
       <hr />
      <div className="yourcomment">
-       <input
+       <textarea
          className="commenthere"
          type="text"
           placeholder="Add a comment..."
