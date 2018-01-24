@@ -97,13 +97,13 @@ class PostList extends Component{
         <FeaturedTags tagCounts = {this.state.tagCounts}/>
         <div className='main-post-div'>
 
-          <p className="main-love-para">
+          {/* <p className="main-love-para">
             <i className="fa fa-heart fa-2x" aria-hidden="true"> </i>
             <strong>  Send you love as much as 10 times.</strong>
           </p>
           <p className="secondary-love-para">
             By sending your love, you can signal to us which story really stands out
-          </p>
+          </p> */}
           <hr />
 
           {
