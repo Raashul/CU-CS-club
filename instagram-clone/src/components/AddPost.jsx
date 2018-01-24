@@ -12,7 +12,7 @@ class AddPost extends Component{
         pictureToAdd: {},
         caption: '',
         pictureUrl: '',
-        loveCounts: 0,
+        clap: false,
         pictureDownloadUrl: '',
         success: '',
         aboutPhotoCharacters: '',
@@ -67,10 +67,18 @@ class AddPost extends Component{
         posts.push({
           caption: this.state.caption,
           pictureDownloadUrl: this.state.pictureDownloadUrl,
-          totalLoves: this.state.loveCounts,
+          clap: false,
           tag: this.state.tag,
           username: localStorage.getItem('username'),
-          displayPicture: localStorage.getItem('displayPicture')
+          displayPicture: localStorage.getItem('displayPicture'),
+          //null Comments
+          comments: [
+            {
+              "username": '',
+              'commentText': ''
+            }
+          ]
+
         })
 
         browserHistory.push('/app');
@@ -164,10 +172,10 @@ class AddPost extends Component{
 }
 
   function mapStateToProps(state){
-
-    const {uid} = state;
+    const {post} = state;
+    console.log('this.state in AddPost is ', state);
     return {
-      uid
+      post
     };
 
   }

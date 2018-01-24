@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {setPosts, setTags} from '../actions';
+
 
 import { posts } from '../firebase';
 
+import Comments from './Comments';
 import FeaturedTags from './FeaturedTags';
-import LoveCount from './LoveCount';
+import Clap from './Clap';
 
 class PostList extends Component{
 
@@ -12,23 +16,22 @@ class PostList extends Component{
     this.state = {
       posts: [],
       tagCounts : {
-        funnyPosts: 0,
-        collegePosts: 0,
-        naturePosts: 0,
-        technologyPosts: 0,
-        newsPosts: 0,
-        savagePosts: 0,
-        sciencePosts: 0,
-        awkwardMomentPosts: 0,
-        newsPosts: 0,
-        wtfPosts: 0
-      }
-
-    };
+       funnyPosts: 0,
+       collegePosts: 0,
+       naturePosts: 0,
+       technologyPosts: 0,
+       newsPosts: 0,
+       savagePosts: 0,
+       sciencePosts: 0,
+       awkwardMomentPosts: 0,
+       newsPosts: 0,
+       wtfPosts: 0
+     }
+    }
   }
 
-
   componentWillMount(){
+
     let tagCounts = {
       funnyPosts: 0,
       collegePosts: 0,
@@ -44,8 +47,9 @@ class PostList extends Component{
       let posts = [];
       snap.forEach(post => {
         const serverKey = post.key;
-        let {caption, pictureDownloadUrl, totalLoves, tag, username, displayPicture} = post.val();
-        posts.push({caption, pictureDownloadUrl, serverKey, totalLoves, tag, username, displayPicture});
+        let {caption, pictureDownloadUrl, clap, tag, username, displayPicture, comments} = post.val();
+        posts.push({caption, pictureDownloadUrl, serverKey, clap, tag, username, displayPicture, comments});
+        console.log('posts', posts);
 
         if(tag === '#funny'){
           tagCounts.funnyPosts++;
@@ -75,16 +79,19 @@ class PostList extends Component{
             tagCounts.wtfPosts++;
         }
       });
+
+      this.props.setPosts(posts);
       this.setState({
         posts: posts,
         tagCounts: tagCounts
       })
 
+
     })
   }
 
-
   render(){
+
     return(
       <div>
         <FeaturedTags tagCounts = {this.state.tagCounts}/>
@@ -99,8 +106,10 @@ class PostList extends Component{
           </p>
           <hr />
 
-          {this.state.posts.map((post, index) => {
+          {
+            this.props.posts.map((post, index) => {
             return (
+
               <div key={index} className='post'>
                 <div className='display-picture-div'>
                   <img src={post.displayPicture} className='display-picture'/>
@@ -115,7 +124,7 @@ class PostList extends Component{
                    />
                    <br />
                    <br />
-                    <LoveCount post = {post}/>
+                    <Clap post = {post}/>
                     <div>tag: {post.tag} </div>
                     <div className='caption'>
                       <p className='post-caption'>
@@ -124,6 +133,8 @@ class PostList extends Component{
                      </div>
 
                     <hr />
+                    <Comments post = {post}/>
+
                   </div>
                 </div>
             )
@@ -135,4 +146,14 @@ class PostList extends Component{
 
 }
 
-export default PostList;
+function mapStateToProps(state){
+  const {posts} = state;
+  return {
+    posts
+  }
+}
+
+
+
+
+export default connect(mapStateToProps, {setPosts}) (PostList);

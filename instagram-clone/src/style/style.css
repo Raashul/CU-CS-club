@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis|Lucida+Grande|Alegreya|Open+Sans|PacificoLucida|Sans+Unicode|Lucida+Sans|Geneva');
+
 body{
   background-color: #FAFAFA;
   font-family: 'Open Sans', sans-serif;
@@ -12,6 +14,7 @@ body{
     width: 300px;
     color:black;
 }
+
 
 /* Login Input box */
 .box {
@@ -259,8 +262,8 @@ input{
 }
 
 .post-image{
-  min-height:400px;
-  width: 500px;
+  min-height:300px;
+  width: 100%;
 }
 
 /*  Comments  */
@@ -271,8 +274,24 @@ input{
   width: 70%;
   color: black;
   padding-bottom: 1.4%;
-  font-size: 1.2em;
 }
+
+.comment-section{
+  margin-top: 0.5%;
+}
+
+.comment-comment{
+  font-size: 14px;
+  font-family: 'Dosis', sans-serif;
+}
+
+.comment-username{
+  font-size: 14px;
+  font-family: "Pacifico", sans-serif;
+}
+
+
+/*   --------   */
 
 .featured-tags{
     text-align: center;
@@ -286,6 +305,17 @@ input{
     width: 160px;
     margin-left: 10px;
     margin-top: 5px;
+}
+
+/* Each Tag Posts */
+
+.tag-post{
+  width: 300px;
+  height: 200px;
+}
+.tag-post-image{
+  height: 100%;
+  width: 100%;
 }
 
 /* AddPost style */
@@ -340,6 +370,11 @@ input{
   font-size: 0.9em;
   float: bottom;
   padding: 15px 10px;
+}
+
+.post-caption{
+  font-family: "Pacifico", sans-serif;
+  font-size: 1em;
 }
 
 .display-picture-div{

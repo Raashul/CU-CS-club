@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import { Link } from 'react-router';
 
@@ -9,6 +10,9 @@ class FeaturedTags extends Component{
   }
 
   render(){
+    if(!this.props.tagCounts){
+      return (<div> </div>);
+    }
     return(
       <div className='featured-tags'>
          <Link to = '/tags/funny' className='featured-buttons btn btn-primary'>
@@ -45,4 +49,12 @@ class FeaturedTags extends Component{
 }
 
 
-export default FeaturedTags;
+function mapStateToProps(state){
+  const {posts} = state;
+  return {
+    posts
+  }
+}
+
+
+export default connect(mapStateToProps, null) (FeaturedTags);
