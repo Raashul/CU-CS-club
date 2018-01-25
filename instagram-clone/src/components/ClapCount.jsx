@@ -20,7 +20,7 @@ class ClapCount extends Component{
   increaseLoveCount(){
 
     if(this.state.clapButtonDisabled === true){
-      this.setState({clapError:'You can\'t like your own post' });
+      this.setState({clapError:'You can\'t clap at your own post' });
       return;
     }
 
