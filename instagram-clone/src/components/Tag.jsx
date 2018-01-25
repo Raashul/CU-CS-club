@@ -26,9 +26,9 @@ constructor(props){
       snap.forEach(post => {
         console.log('post in tag.jsx', post.val());
         const serverKey = post.key;
-        let {caption, pictureDownloadUrl, totalClaps, tag, username, comments} = post.val();
+        let {caption, pictureDownloadUrl, totalClaps, tag, username, comments, displayPicture} = post.val();
         if(tag === '#' + this.props.params.tag){
-          posts.push({caption, pictureDownloadUrl, serverKey, totalClaps, tag, username, comments});
+          posts.push({caption, pictureDownloadUrl, serverKey, totalClaps, tag, username, comments, displayPicture});
           noPosts = '';
         }
       });
