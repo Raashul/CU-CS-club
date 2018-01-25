@@ -39,7 +39,6 @@ constructor(props){
     })
   }
 
-
   render(){
 
     return(
