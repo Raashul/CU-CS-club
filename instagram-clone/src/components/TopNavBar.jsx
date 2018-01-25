@@ -19,7 +19,8 @@ class TopNavBar extends Component{
       <Navbar fixedTop className='navbar' collapseOnSelect>
       	<Navbar.Header>
       		<Navbar.Brand>
-      			 <i className="fa fa-instagram fa-2x" aria-hidden="true"></i><span className="sitename">Mini Instagram</span>
+
+             <span className="sitename"><strong> Mini 9gag </strong></span>
           </Navbar.Brand>
           <Navbar.Toggle />
       	</Navbar.Header>
@@ -27,7 +28,7 @@ class TopNavBar extends Component{
           <Nav>
             <Navbar.Text>
         			<Link to='/post' className='navbar-post-link' style={{color: 'black'}}>
-                <i className="fa fa-picture-o fa-lg" aria-hidden="true"></i>
+                {/* <i className="fa fa-picture-o fa-lg" aria-hidden="true"></i> */}
                 Post
               </Link>
         		</Navbar.Text>

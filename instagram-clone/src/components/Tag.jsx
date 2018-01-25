@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 
 import ClapCount from './ClapCount';
 import Comments from './Comments';
@@ -23,10 +24,11 @@ constructor(props){
       let posts = [];
       let noPosts = `No posts with #${this.props.params.tag} tag`
       snap.forEach(post => {
+        console.log('post in tag.jsx', post.val());
         const serverKey = post.key;
-        let {caption, pictureDownloadUrl, totalLoves, tag, username} = post.val();
+        let {caption, pictureDownloadUrl, totalClaps, tag, username, comments} = post.val();
         if(tag === '#' + this.props.params.tag){
-          posts.push({caption, pictureDownloadUrl, serverKey, totalLoves, tag, username});
+          posts.push({caption, pictureDownloadUrl, serverKey, totalClaps, tag, username, comments});
           noPosts = '';
         }
       });
@@ -41,12 +43,14 @@ constructor(props){
   render(){
 
     return(
-      <div>asd
+      <div className='container'>
+        <div><Link className='backhome-link' to='/app'><u> Back Home </u></Link></div>
         <div className='no-posts'>
           <h3>{this.state.noPosts}</h3>
         </div>
 
-        {this.state.posts.map((post, index) => {
+        {
+          this.state.posts.map((post, index) => {
           console.log('post', post);
           return (
             <div key={index} className='post'>

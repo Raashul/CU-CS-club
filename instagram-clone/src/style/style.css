@@ -5,6 +5,7 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
+
 .formField{
     display: block;
     border-radius: 4px;
@@ -277,7 +278,7 @@ input{
 }
 
 .comment-comment{
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Dosis', sans-serif;
 }
 
@@ -291,7 +292,14 @@ input{
 }
 
 
-/*   --------   */
+/*  tag style  --------   */
+
+.backhome-link{
+  color: black;
+}
+.backhome-link:visited{
+  color: black;
+}
 
 .featured-tags{
     text-align: center;
@@ -337,14 +345,20 @@ input{
 
 .love-count{
   color: black;
-  font-weight: 600;
-  margin-top: 1.4%;
-  font-size: 1.2em;
-  text-decoration: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.clap-image{
+  height: 100%;
+  width: 100%;
 }
 
 .love-count:hover{
-  color: #ff1a1a;
+  height: 32px;
+  width: 32px;
+  background-color: #09bc27;
 }
 
 /* Navbar stylesheet */
@@ -360,9 +374,9 @@ input{
 }
 
 .sitename{
-  font-family: 'Pacifico', cursive;
+  font-family: 'Open Sans', sans-serif;
   color: black;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 

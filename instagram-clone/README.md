@@ -1,5 +1,3 @@
-https://meetgram.herokuapp.com
-
 -Install Node.js + React.j
 
 1. git clone {url}

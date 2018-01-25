@@ -49,7 +49,7 @@ class PostList extends Component{
         const serverKey = post.key;
         let {caption, pictureDownloadUrl, clap, tag, username, displayPicture, comments, totalClaps} = post.val();
         posts.push({caption, pictureDownloadUrl, serverKey, tag, username, displayPicture, comments, totalClaps});
-        console.log('posts', posts);
+        posts.reverse();
 
         if(tag === '#funny'){
           tagCounts.funnyPosts++;

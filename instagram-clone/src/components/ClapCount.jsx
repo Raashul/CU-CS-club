@@ -49,10 +49,10 @@ class ClapCount extends Component{
 
     return(
       <div className='love-count-div'>
-        <Link
+        <div
            className='love-count' onClick={() => this.increaseLoveCount()}>
-          <i className="fa fa-heart fa-2x" aria-hidden="true"></i>
-       </Link>
+          <img className='clap-image' src='https://d30y9cdsu7xlg0.cloudfront.net/png/518728-200.png'/>
+       </div>
 
        <p style={{color: 'red'}}>{this.state.clapError}</p>
 

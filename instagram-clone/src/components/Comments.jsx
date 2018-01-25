@@ -42,30 +42,6 @@ class Comments extends Component{
 
   render(){
 
-      // return(
-      //   <div>
-      //     <div className="yourcomment">
-      //       <input
-      //         className="commenthere"
-      //         type="text"
-      //          placeholder="Add a comment..."
-      //          onChange = {event => this.setState({
-      //            commentText: event.target.value
-      //          })}
-      //          onKeyPress = {event => {
-      //            if(event.key === 'Enter'){
-      //              this.commentSubmit();
-      //            }
-      //          }}
-      //        />
-      //
-      //         <span className="fa fa-ellipsis-h"></span>
-      //       </div>
-      //   </div>
-      // )
-      //
-
-
     return(
       <div>
       {
