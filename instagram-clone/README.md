@@ -1,5 +1,10 @@
 -Install Node.js + React.j
 
+Use your firebase crendentials and store it in -src/firebas.js
+<img src ="./screenshots/firebase.png" width="100%" height="100%"/>
+
+<br> <br>
+
 1. git clone {url}
 
 2. cd instagram-clone
