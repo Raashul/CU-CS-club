@@ -1,5 +1,5 @@
 <h2>Mini 9Gag</h2>
-<p>A minimilistic version of 9gag bult with React and Firebase</p>
+<p>A minimilistic version of 9gag built with React and Firebase</p>
 <br> <br>
 
 <h2> Getting started </h2>
